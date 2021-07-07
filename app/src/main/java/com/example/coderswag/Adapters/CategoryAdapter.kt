@@ -9,11 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.coderswag.Model.Category
 import com.example.coderswag.R
+class CategoryAdapter(val context: Context, val categories: List<Category>) :BaseAdapter() {
 
-class CategoryAdapter(context : Context, categories: List<Category>) :BaseAdapter() {
-
-    val context = context
-    val categories = categories
     override fun getCount(): Int {
 return categories.count()    }
 
@@ -47,8 +44,7 @@ return 0
 
 
         val category = categories[position]
-        val resourceId= context.resources.getIdentifier(category.image,"drawable",context.packageName)
-        holder.categoryImage?.setImageResource(resourceId)
+        holder.categoryImage?.setImageResource(category.image)
         holder.categoryName?.text =category.title
         return  categoryview
     }
@@ -57,4 +53,7 @@ private  class ViewHolder{
     var categoryName: TextView? = null
 
 }
+
+
 }
+
